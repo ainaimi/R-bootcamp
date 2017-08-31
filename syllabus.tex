@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontawesome}
+\usepackage{academicons}
+\usepackage{pxfonts}
+\usepackage[T1]{fontenc}
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{indentfirst} % indents every paragraph
+\usepackage{setspace} % ? references
+\usepackage{booktabs} % for lines in table
+\usepackage{rotating} % For sideways tables/figures
+\usepackage[margin = .85in]{geometry} % allows to set margins. Use "vmargin" package to get different sized margins.
+\usepackage{fancyhdr} %these three change the page number style from normal to "fancy".
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage{tabularx}
+\usepackage{pdfpages}
+\usepackage{longtable}
+\renewcommand{\headrulewidth}{0pt} %default is to put a line at top. This command tells latex to make that line 0pt font (i.e., to remove it).
+\pagenumbering{arabic} %arabic is the default. This command sets how page numbers appear. Capital "R" in Roman gives capital roman numerals. Lowercase "r" gives lowercase roman numerals. Good for toc, appendicies, etc. Alph/alph gives upper/lower case letters.
+\usepackage{multicol}
+\usepackage{subfig}
+\usepackage{mdwlist}
+\usepackage{url}
+\usepackage{verbatim}
+\urlstyle{same}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[colorlinks = TRUE, urlcolor = blue, linkcolor = black, citecolor = black]{hyperref}
+
+\rfoot{\thepage}
+%\lfoot{Causal Inference in Social Epidemiology}
+%\rhead{\textcolor{gray}{\underline{\textbf{DRAFT}}}}
+
+\begin{document}
+\thispagestyle{empty}
+\baselineskip=24pt
+\setcounter{page}{1}
+\begin{center}
+\noindent \large 
+Graduate School of Public Health\\Department of Epidemiology\\{\bf EPI 2187: Epidemiologic Methods 2}\\{\bf Fall 2018}\\
+\end{center}
+
+\newlength{\rcollength}\setlength{\rcollength}{2.2in}%
+\begin{tabular}[t]{p{.75\textwidth-\rcollength}p{1.25\rcollength}}
+{\bf Course Director:} & \\
+ Ashley I. Naimi & {{\FA \faPhone} \hskip .08cm : 412.624.3174} \\
+Department of Epidemiology & {{\FA \faFax} : 412.624.7397} \\
+ Graduate School of Public Health &  \href{mailto: ashley.naimi@pitt.edu}{{\FA \faEnvelope} :  ashley.naimi@pitt.edu} \\
+ University of Pittsburgh & \href{http://www.ashleyisaacnaimi.com}{{\FA \faHome} : www.ashleyisaacnaimi.com} \\
+ 130 DeSoto Street & {\faGithub} : ainaimi \\ 
+ 5131 Parran Hall &   {\aibioRxiv} : ashley.naimi \\ 
+ Pittsburgh, PA   15261-3100 & {\aiOrcid} : 0000-0002-1510-8175 \\ 
+\end{tabular}
+
+\vskip .25cm 
+
+{\bf  Office Hours}: By Appointment
+
+\vskip .25cm
+{\bf Teaching Assistant}: 
+
+\vskip .25cm
+{\bf Class Schedule}:  Tuesday and Thursday 3:00-4:15 p.m. in A-522 Crabtree Hall
+
+\vskip .25cm
+{\bf Summary of Course}: This course is an introduction to advanced epidemiology and statistical methods used in clinical and public health research.  The focus of the course is on the appropriate selection and application of statistical methods for answering research questions as well as the proper interpretation of results derived from these methods.  Students will learn about the analysis of categorical data, survival data, and longitudinal data.  The sample size and power issues involved when using these methods will also be covered.  Students will be introduced to the causal inference framework, including the use of propensity scores and inverse probability weighting, and dynamic modeling.  Students will gain experience with the statistical methods studied in this course by analyzing data sets with SAS and R.  
+
+\vskip .25cm
+The course is designed for students in the Graduate School of Public Health who have a solid understanding of epidemiological concepts and introductory statistical methods and have some experience programming using a standard statistical software package.  The specific prerequisites are EPIDEM 2180, BIOSTAT 2041, and BIOSTAT 2042{\bf Teaching/Learning Objective}: Upon completion of this course, the student will be able to:
+\begin{itemize}
+	\item[1.]	 Understand the basic mathematical theory underlying logistic, Poisson, Cox and longitudinal regression models, Bayesian and dynamic models, and causal inference.\item[2.]	Evaluate the suitability of statistical methods for application to research questions and for interpreting clinical and epidemiologic literature.\item[3.]	Employ and critique model-building techniques using statistical and epidemiological criteria.
+	\begin{itemize} \item[a.]	Create appropriate exploratory data analysis tools to characterize data, evaluate assumptions, apply statistical models, and interpret the results in context.  \item[b.]	Identify and appropriately address bias, confounding, effect modification, and mediation.   \item[c.]	Develop a hypothesis, analyze data to test the hypothesis, and interpret the results in the context of the research study.  
+	\end{itemize}\item[4.]	Apply standard statistical methods using SAS a widely-used statistical package for data analysis
+\end{itemize}
+\vskip .25cm{\bf Assignments and Descriptions}:  Weekly homework assignments will be given for most units.  Assignments will involve applying the methods covered in class to existing datasets.  In general, SAS programming will be used to determine statistical results based on the data, and the student will be asked to interpret the result and to arrive at a reasonable conclusion.  Sequential steps of a large project will be assigned over the several weeks dedicated to longitudinal data analysis. 
+
+\begin{tabular}[t]{ll}\multicolumn{2}{l}{\bf Student Performance Evaluation:}\\[1em]Homework Assignments:&70\%\\Longitudinal Analysis Project:&30\%\\\multicolumn{2}{l}{Grading Scale:}\\93-100\% & 	A \\90-92\%  &	A- \\87-89\%  &       	B+\\83-86\%  &       	B\\80-82\%  &       	B-\\70-79\%  &    	C\\60-69\%  &    	D\\< 60\%   &    	F\\
+\end{tabular}
+
+\vskip .25cm
+{\bf CourseWeb/BlackBoard Instruction}: The University of Pittsburgh’s CourseWeb (Blackboard) will be used for this course.  Lecture slides, homework assignments and data sets required for homework completion can be obtained from the course website.  The Blackboard website is  http://courseweb.pitt.edu/ 
+\vskip .25cm
+{\bf Accommodation for Students with Disabilities}: If you have any disability for which you may require accommodation, you are encouraged to notify both your instructor and the Office of Disability Resources and Services, 216 William Pitt Union (412-648-7890) during the first two weeks of the term.\vskip .25cm
+{\bf Academic Integrity}: All students are expected to adhere to the school’s standards of academic honesty. Any work submitted by a student for evaluation must represent his/her own intellectual contribution and efforts. The GSPH policy on academic integrity, which is based on the University policy, is available online at \href{http://www.publichealth.pitt.edu/interior.php?pageID=126}{http://www.publichealth.pitt.edu/interior.php?pageID=126}.  The policy includes obligations for faculty and students, procedures for adjudicating violations, and other critical information. Please take the time to read this policy.Students committing acts of academic dishonesty, including plagiarism, unauthorized collaboration on assignments, cheating on exams, misrepresentation of data, and facilitating dishonesty by others, will receive sanctions appropriate to the violation(s) committed.  Sanctions include, but are not limited to, reduction of a grade for an assignment or a course, failure of a course, and dismissal from GSPH. All student violations of academic integrity must be documented by the appropriate faculty member; this documentation will be kept in a confidential student file maintained by the GSPH Office of Student Affairs.  If a sanction for a violation is agreed upon by the student and instructor, the record of this agreement will be expunged from the student file upon the student's graduation. If the case is referred to the GSPH Academic Integrity Hearing Board, a record will remain in the student's permanent file.  
+\vskip .25cm
+{\bf Required Textbook}:Miguel A. Hernan, James M. Robins. Causal Inference, Updated March 2017\href{https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/}{https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/}\vskip .25cm{\bf Supplemental Textbooks (Optional)}:\vskip .25cm{\bf Extra Readings}:
+\vskip .25cm
+
+{\bf Topic Schedule}:\\
+\bgroup
+\def\arraystretch{1.25}%  1 is the default, change whatever you need
+\begin{tabular}[t]{|l|l|p{15cm}|}
+\hline
+Week & Date & Topic \\
+\hline
+1 & Tu Aug 29 & {\bf Scientific Reasoning} \\
+  & Th Aug 31 & {\bf Logic: Formal and Informal Fallacies} \\
+ \hline
+2 & Tu Sep 5  & {\bf Probability \& Statistics} \\  &  Th Sep 7	  & {\bf Causal Inference} \\
+ \hline3 &	Tu Sep 12 & {\bf Causal Inference (application)}\\  & Th Sep 14 & {\bf G Formula}\\
+\hline 4 & Tu Sep 19 & {\bf G Formula (application)}\\  & Th Sep 21 & {\bf IPW}\\
+\hline 5 & Tu Sep 26 & {\bf IPW (application)}\\  & Th Sep 28 & {\bf Double Robust Estimation}\\
+\hline6 & Tu Oct 3 & {\bf  Double Robust Estimation (application)}\\  & Th Oct 5	 & {\bf Review} \\
+\hline7 &	Tu Oct 10 & {\bf Fall Break}\\  & Th Oct 12 & {\bf Exam}\\
+\hline8 & Tu Oct 17 & {\bf Post Exam Review}\\  & Th Oct 19 & {\bf Bootstrapping}\\
+\hline
+9 & Tu Oct 24 & {\bf Bootstrapping (application) }\\  & Th Oct 26 & {\bf GLMs: Linear, Logit, Poisson, Log-binomial}\\
+\hline
+10 & Tu Oct 31 & {\bf GLMs: Linear, Logit, Poisson, Log-binomial (application)}\\   & Th Nov 2 & {\bf Repeated Measures: GEE, Mixed Effects Models}\\
+\hline11 & Tu Nov 7 & {\bf Repeated Measures: GEE, Mixed Effects Models (application)}\\   & Th Nov 9 & {\bf Survival Data: Risk, Rate, Hazard, Time}\\
+\hline12 & Tu Nov 14 & {\bf Survival Data: Risk, Rate, Hazard, Time (application)}\\   & Th Nov 16 & {\bf Cox \& Pooled Logistic Regression}\\\hline13 & Tu Nov 21 & {\bf  Cox \& Pooled Logistic Regression (application)}\\   & Th Nov 23 & {\bf Thanksgiving Break}\\\hline14 & Tu Nov 28 & {\bf Machine Learning 1a}\\   & Th Nov 30 & {\bf Machine Learning 1b}\\
+\hline15 & Tu Dec 5 & {\bf Machine Learning 1 (application)}\\   & Th Dec 7 & {\bf Machine Learning 2}\\\hline16 & Tu Dec 12 & {\bf Machine Learning 2 (application)}\\   & Th Dec 14 & {\bf Wrapping Up}\\
+ \hline
+\end{tabular}
+\egroup
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
