@@ -1,0 +1,382 @@
+---
+title: "EPID2187"
+subtitle: "Part 0: Introduction to R and RStudio"
+author: "Ashley I Naimi"
+date: "02/01/18"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["mtheme_max.css","fonts_mtheme_max.css"]
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(here)
+```
+
+class: inverse, center, middle
+
+# Introduction to R & Rstudio
+
+---
+
+# Acknowledgements
+
+Some of this material was taken from:
+
+- Chris Paciorek's [bootcamp](https://github.com/berkeley-scf/r-bootcamp-2016)
+- Garret Grolemund's [tidyverse, visualization, and manipulation basics](https://www.rstudio.com/resources/webinars/tidyverse-visualization-and-manipulation-basics/)
+- RStudio [Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
+
+A comprehensive list of additional resources: 
+
+- [R Studio Training](https://www.rstudio.com/online-learning/#r-programming)
+- [R Studio Webinars](https://www.rstudio.com/resources/webinars/) 
+
+---
+
+# What is R? <img src="Rlogo.png" style="float: right;width: 10%"/>
+
+Environment for statistical computing and graphics
+
+--
+
+Relatively simple **programming language**
+
+.pull-left[
+C is a compiled language
+- Requires a complete program to run
+- Fast
+]
+
+--
+
+.pull-right[
+R is an interpreted language
+- Commands run interactively
+- Flexible but slow
+]
+
+--
+
+If C is faster, why use R?
+
+- Over 10,000 Function Libraries
+- Implements many common statistical procedures
+- Exceptional graphics functions
+
+---
+# How does R compare to SAS/Stata? <img src="Rlogo.png" style="float: right;width: 10%"/>
+
+- Fairly similar committment for simple tasks (e.g., regression, EDA).
+
+- Much better at plotting and visualizing data
+
+- Much easier to use for complex tasks (e.g., advanced estimation, complex data)
+
+- Overall, (much) greater ROI
+
+- For certain tasks (e.g., machine learning), the repertoire of tools available to R users is **unparalleled**.
+
+---
+
+# R for Data Science <img src="Rlogo.png" style="float: right;width: 10%"/>
+
+.center[  
+  <img src="data-science.png"/>
+]
+
+
+---
+# Installing R <img src="Rlogo.png" style="float: right;width: 10%"/>
+
+[www.r-project.org](https://www.r-project.org)
+
+<img src="installR.jpg"/>
+
+---
+# Installing R <img src="Rlogo.png" style="float: right;width: 10%"/>
+
+[http://lib.stat.cmu.edu/R/CRAN/](http://lib.stat.cmu.edu/R/CRAN/)
+
+<img src="installR2.jpg"/>
+
+---
+# What is RStudio? <img src="RStudio-Logo-All-White.png" style="float: right;width: 25%"/>
+
+An integrated development environment (IDE) for R.
+
+.center[
+<img src="rstudio-workbench.png" style="width: 75%"/>
+]
+
+---
+# What is RStudio? <img src="RStudio-Logo-All-White.png" style="float: right;width: 25%"/>
+
+An integrated development environment (IDE) for R.
+
+Highlights syntax/code
+
+Code completion / indentation / navigation
+
+Package development / debugging
+
+Project management / organization
+
+Version control (git)
+
+Creates HTML, Word, and pdf documents
+
+Currently the best option for producing reproducible research
+
+---
+# Installing RStudio <img src="RStudio-Logo-All-White.png" style="float: right;width: 25%"/>
+
+[https://www.rstudio.com/products/rstudio/#Desktop](https://www.rstudio.com/products/rstudio/#Desktop)
+
+.center[
+<img src="installRstudio.jpg" style="width: 75%"/>
+]
+
+---
+# Installing RStudio <img src="RStudio-Logo-All-White.png" style="float: right;width: 25%"/>
+
+[https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
+
+.center[
+<img src="installRstudio2.jpg" style="width: 75%"/>
+]
+
+---
+# Running Code in R
+
+To run a line of code in the R programming language, place your cursor at the end of a line, and press:
+
+- COMMAND + RETURN (Mac)
+- CTRL + ENTER (Windows)
+
+```{r}
+2*2*2
+```
+
+Alternatively, highlight a single or multiple lines with your cursor, and press the same keys
+
+
+---
+# R as a calculator
+
+Most basically, R is a very advanced calculator:
+
+```{r eval=T,warning=F,results='hide'}
+2 + 2 # add numbers
+2 * pi # multiply by a constant
+3^4 # powers
+runif(5) # random number generation
+sqrt(4^2) # functions
+log(10)
+log(100, base = 10)
+23 %/% 2 # integer division
+23 %% 2 # modulus operator
+
+# scientific notation
+5000000000 * 1000
+5e9 * 1e3
+```
+
+More operators: [Quick-R](https://www.statmethods.net/management/operators.html)
+
+---
+
+# Assigning values to R objects 
+
+R is "object oriented". A basic function in R is to assign values to objects and perform functions on them:
+
+```{r}
+
+a <- 10
+a 
+a/100
+a+10
+
+# R is case sensitive!!!
+A <- 15
+print(c(a,A))
+```
+
+---
+
+# Vectors
+
+```{r}
+## Basic functional unit in R is a vector:
+# numeric vector
+nums <- c(1.1, 3, -5.7)
+nums
+
+nums <- rep(nums,2)
+nums
+
+# integer vector
+ints <- c(1L, 5L, -3L) # force storage as integer not decimal number
+# 'L' is for 'long integer' (historical)
+
+# sample nums with replacement
+new_nums <- sample(nums,8,replace = TRUE)
+new_nums
+
+```
+
+---
+# Vectors
+```{r}
+# logical (i.e., Boolean) vector
+bools <- c(TRUE, FALSE, TRUE, FALSE, T, T, F, F)
+bools
+# character vector
+chars <- c("epidemiology is", "the study", 
+           "of the", "distribution", 
+           "and determinants", "of disease", 
+           "in", "a population")
+chars
+```
+
+---
+# Data Frames
+Vectors can be combined into data frames (the basic data unit in R):
+```{r}
+A <- data.frame(new_nums,bools,chars)
+A
+```
+---
+
+# Lists
+And pretty much anything (vectors, data frames) can be combined into lists:
+```{r}
+basic_list <- list(rep(2,15),
+                   "so what do you think of R so far?",
+                   A)
+basic_list[[1]]
+basic_list[[2]]
+head(basic_list[[3]])
+```
+---
+
+# Subsetting
+```{r}
+
+vals <- seq(2, 12, by = 2)
+vals
+
+vals[3]
+vals[3:5]
+vals[c(1, 3, 6)];vals[-c(1, 3, 6)]
+vals[c(rep(TRUE, 3), rep(FALSE, 2), TRUE)]
+
+```
+
+---
+
+# Subsetting Data Frames
+
+```{r error=T}
+A[3,];A[,3]
+A[2:3,];A[,2:3]
+subset(A,bools==F,select = -bools)
+```
+---
+
+# (Base) R Functions: Getting Help
+
+```{r}
+# HELP!
+?median
+
+help.search('linear regression')
+
+help(package='ggplot2')
+
+```
+---
+
+# (Base) R Functions: Object Structure
+
+`iris` is a flower dataset inherent in R. The `str()` command gives the structure of the iris dataset:
+```{r}
+str(iris)
+```
+
+The `class()` command tells us what kind of object this is:
+```{r}
+class(iris)
+```
+---
+
+# Using R & RStudio <img src="RStudio-Logo-All-White.png" style="float: right;width: 25%"/>
+
+R is an old language, but remains cutting edge largely through a network of users/maintainers who contribute **packages**.
+
+Packages are functions that are not part of base R.
+
+Without these packages, R would be much less user-friendly.
+
+The *tidyverse* is a collection of packages that facilitate the practice of "tidy" data science.
+
+---
+
+# Installing and loading packages
+
+Let's install the tidyverse, and some other packages that are important for basic data visualization. 
+
+If this is your first time installing packages in R, you'll have to choose a CRAN mirror. This is done with the "repos = " argument (but can be done other ways too).
+
+```{r}
+install.packages("tidyverse",repos='http://lib.stat.cmu.edu/R/CRAN')
+library(tidyverse)
+```
+
+---
+
+Let's also install and load a package for the VIsualisation of Missing data:
+
+```{r}
+ install.packages("VIM",repos='http://lib.stat.cmu.edu/R/CRAN')
+ library(VIM)
+```
+
+---
+
+We can now use function from the tidyverse to load our NHEFS data:
+
+```{r}
+nhefs <- read_csv("../nhefs.csv")
+```
+
+---
+# Help with R Functions
+
+```{r eval=F}
+help(lm)
+?lm
+??lm
+
+```
+
+---
+
+# R & RStudio: Diving Deeper <img src="RStudio-Logo-All-White.png" style="float: right;width: 25%"/>
+
+Resources for further learning in R / Rstudio are endless:
+
+- [Chris Paciorek (UC Berkeley Bootcamp on youtube)](https://www.youtube.com/watch?v=CWrz8JJGKvI)
+
+- [R for Data Science (e-book)](http://r4ds.had.co.nz/) 
+
+- [swirl](http://swirlstats.com/)
+
+- [Data Camp Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r)
+
+- [Udacity Data Analysis with R](https://www.udacity.com/course/data-analysis-with-r--ud651)
+
+- [Roger Peng's Coursera (advanced)](https://www.coursera.org/learn/r-programming#syllabus)
+
+- [r-bloggers](https://www.r-bloggers.com/)
