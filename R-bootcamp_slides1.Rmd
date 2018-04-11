@@ -1,6 +1,6 @@
 ---
-title: "EPID2187"
-subtitle: "Part 0: Introduction to R and RStudio"
+title: "R-Bootcamp"
+subtitle: "Part 1: Introduction to R and RStudio"
 author: "Ashley I Naimi"
 date: "02/01/18"
 output:
@@ -415,7 +415,7 @@ head(nhefs)
 
 # Functions and for loops
 
-Functions are chunks of code written to accomplish specific tasks. Suppose we wanted to evaluate the proportion of missing data in each column in `nhefs`. We could do this by writing a function:
+Functions are pieces of code written to accomplish specific tasks. Suppose we wanted to evaluate the proportion of missing data in each column in `nhefs`. We could do this by writing a function:
 ```{r}
 
 propMissing <- function(x){
@@ -445,9 +445,12 @@ Instead of a `for` loop, we can use the `apply` family of functions, which prese
 ```{r}
 apply(nhefs,2,propMissing)
 ```
-
 More information on the apply family: [Apply tutorial](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/)
 
+We can also make the above much more presentable and easier to read:
+```{r}
+round(apply(nhefs,2,propMissing),3)*100
+```
 ---
 
 # R & RStudio: Diving Deeper <img src="RStudio-Logo-All-White.png" style="float: right;width: 25%"/>
