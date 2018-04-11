@@ -403,7 +403,7 @@ We'll learn more about the `%>%` (pipe) operator later. We've just re-written th
 ---
 # Exploring Data
 
-This is what the limited dataset looks like:
+This is what the selected columns look like:
 
 ```{r}
 head(nhefs)
@@ -417,14 +417,13 @@ head(nhefs)
 
 Functions are pieces of code written to accomplish specific tasks. Suppose we wanted to evaluate the proportion of missing data in each column in `nhefs`. We could do this by writing a function:
 ```{r}
-
 propMissing <- function(x){
   mean(is.na(x))
 }
 propMissing(nhefs[,1])
 propMissing(nhefs[,2])
 ```
-
+In the above code, `mean()` takes the sample average. In R, missing values are coded as `NA`, and `is.na()` is a base R function that returns a Boolean (true/false) value for each element in `x` that is missing. Thus, `mean(is.na(x))` returns the proportion of `x` that is missing.
 ---
 
 # Functions and for loops
